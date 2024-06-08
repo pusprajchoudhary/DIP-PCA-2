@@ -1,0 +1,7 @@
+threshold = 128;
+binary_img = gray_img > threshold;
+figure, imshow(binary_img), title(['Binary Image with Threshold ', num2str(threshold)]);
+for thresh = [50, 100, 150, 200]
+    binary_img = gray_img > thresh;
+    figure, imshow(binary_img), title(['Binary Image with Threshold ', num2str(thresh)]);
+end
