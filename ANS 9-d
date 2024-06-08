@@ -1,0 +1,4 @@
+H_bandstop = 1 - H_bandpass;
+
+bandstop_filtered_img = real(ifft2(ifftshift(img_fft .* H_bandstop)));
+figure, imshow(bandstop_filtered_img, []), title('Band-stop Filtered Image in Frequency Domain');
