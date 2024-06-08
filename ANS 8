@@ -1,0 +1,12 @@
+D0 = 30;
+n = 2; 
+[rows, cols] = size(gray_img);
+[u, v] = meshgrid(-floor(cols/2):floor((cols-1)/2), -floor(rows/2):floor((rows-1)/2));
+D = sqrt(u.^2 + v.^2);
+H_low = 1 ./ (1 + (D./D0).^(2*n));
+H_high = 1 - H_low;
+img_fft = fftshift(fft2(double(gray_img)));
+low_filtered_img = real(ifft2(ifftshift(img_fft .* H_low)));
+high_filtered_img = real(ifft2(ifftshift(img_fft .* H_high)));
+figure, imshow(low_filtered_img, []), title('Butterworth Low-pass Filtered Image');
+figure, imshow(high_filtered_img, []), title('Butterworth High-pass Filtered Image');
