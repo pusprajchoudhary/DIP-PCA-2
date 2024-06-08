@@ -1,0 +1,5 @@
+LEN = 21; 
+THETA = 11;
+PSF = fspecial('motion', LEN, THETA);
+blurred_img = imfilter(gray_img, PSF, 'conv', 'circular');
+figure, imshow(blurred_img), title('Image with Motion Blur');
