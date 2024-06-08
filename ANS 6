@@ -1,0 +1,15 @@
+sp_noise_img = imnoise(gray_img, 'salt & pepper', 0.02);
+gaussian_noise_img = imnoise(gray_img, 'gaussian', 0, 0.01);
+
+avg_filter_3x3 = fspecial('average', [3 3]);
+avg_filter_5x5 = fspecial('average', [5 5]);
+
+avg_sp_3x3 = imfilter(sp_noise_img, avg_filter_3x3);
+avg_sp_5x5 = imfilter(sp_noise_img, avg_filter_5x5);
+avg_gaussian_3x3 = imfilter(gaussian_noise_img, avg_filter_3x3);
+avg_gaussian_5x5 = imfilter(gaussian_noise_img, avg_filter_5x5);
+
+figure, imshow(avg_sp_3x3), title('Salt & Pepper Noise Averaged with 3x3 Filter');
+figure, imshow(avg_sp_5x5), title('Salt & Pepper Noise Averaged with 5x5 Filter');
+figure, imshow(avg_gaussian_3x3), title('Gaussian Noise Averaged with 3x3 Filter');
+figure, imshow(avg_gaussian_5x5), title('Gaussian Noise Averaged with 5x5 Filter');
