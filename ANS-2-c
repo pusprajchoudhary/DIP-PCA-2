@@ -1,0 +1,2 @@
+negative_img = imcomplement(gray_img);
+figure, imshow(negative_img), title('Negative Image');
