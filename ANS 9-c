@@ -1,0 +1,5 @@
+D1 = 20; D2 = 50;
+H_bandpass = double(D >= D1 & D <= D2);
+
+bandpass_filtered_img = real(ifft2(ifftshift(img_fft .* H_bandpass)));
+figure, imshow(bandpass_filtered_img, []), title('Band-pass Filtered Image in Frequency Domain');
