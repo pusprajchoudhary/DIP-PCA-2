@@ -1,0 +1,4 @@
+H_low = 1 ./ (1 + (D./D0).^(2*n));
+
+low_filtered_img = real(ifft2(ifftshift(img_fft .* H_low)));
+figure, imshow(low_filtered_img, []), title('Low-pass Filtered Image in Frequency Domain');
