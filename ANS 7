@@ -1,0 +1,9 @@
+box_filter_3x3 = fspecial('average', [3 3]);
+box_filter_5x5 = fspecial('average', [5 5]);
+box_sp_3x3 = imfilter(sp_noise_img, box_filter_3x3);
+box_sp_5x5 = imfilter(sp_noise_img, box_filter_5x5);
+median_sp = medfilt2(sp_noise_img, [3 3]);
+% Display results
+figure, imshow(box_sp_3x3), title('Salt & Pepper Noise Box Filtered with 3x3');
+figure, imshow(box_sp_5x5), title('Salt & Pepper Noise Box Filtered with 5x5');
+figure, imshow(median_sp), title('Salt & Pepper Noise Median Filtered');
