@@ -1,0 +1,4 @@
+equalized_img = histeq(gray_img);
+figure, imshow(equalized_img), title('Histogram Equalized Image');
+figure, imhist(gray_img), title('Original Histogram');
+figure, imhist(equalized_img), title('Equalized Histogram');
