@@ -1,0 +1,6 @@
+mask_3x3 = ones(3,3) / 9;
+avg_img_3x3 = conv2(double(gray_img), mask_3x3, 'same');
+figure, imshow(uint8(avg_img_3x3)), title('Averaged Image with 3x3 Mask');
+mask_5x5 = ones(5,5) / 25;
+avg_img_5x5 = conv2(double(gray_img), mask_5x5, 'same');
+figure, imshow(uint8(avg_img_5x5)), title('Averaged Image with 5x5 Mask');
