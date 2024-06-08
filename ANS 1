@@ -1,0 +1,17 @@
+ img = imread(['cameraman.tif']);
+figure, imshow(img), title('Original Image');
+gray_img = im2gray(img);
+levels = [128, 64, 32, 16, 8];
+for i = 1:length(levels)
+    reduced_img = uint8(floor(double(gray_img) / 256 * levels(i)));
+    figure, imshow(reduced_img, [0 levels(i)-1]), title(['Gray levels: ', num2str(levels(i))]);
+end
+
+brightness_increase = 50;
+brightness_decrease = -50;
+
+bright_img = gray_img + brightness_increase;
+dark_img = gray_img + brightness_decrease;
+
+figure, imshow(bright_img), title('Brightness Increased');
+figure, imshow(dark_img), title('Brightness Decreased');
