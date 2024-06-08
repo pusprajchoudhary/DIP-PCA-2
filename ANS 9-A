@@ -1,0 +1,5 @@
+D0 = 30;
+H_high = 1 - 1 ./ (1 + (D./D0).^(2*n));
+
+high_filtered_img = real(ifft2(ifftshift(img_fft .* H_high)));
+figure, imshow(high_filtered_img, []), title('High-pass Filtered Image in Frequency Domain');
