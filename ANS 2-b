@@ -1,0 +1,3 @@
+contrast_factor = 1.5; % Contrast factor
+contrasted_img = imadjust(gray_img, [], [], contrast_factor);
+figure, imshow(contrasted_img), title('Contrast Manipulated');
